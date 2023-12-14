@@ -1,0 +1,13 @@
+Note: Please replace the url with your mydomain url. 
+POST :
+Endpoint: 
+   https://mytutorialrack-cc-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Employee_HR_Data__c/
+
+Request body:
+{
+  "First_name__c":"Shahrukh",
+  "Last_name__c":"Khan",
+  "Salary__c":100000,
+  "Employee_Id__c":"E777",
+  "Date_of_Birth__c": "1980-02-04"
+}

@@ -1,0 +1,280 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Aha Service API",
+    "description": "API to connect with Aha"
+  },
+  "paths": {
+    "/api/v1/features/{refId}": {
+      "get": {
+        "description": "get the feature details",
+        "operationId": "getFeatureWithReferenceId",
+        "parameters": [{
+          "name": "refId",
+          "in": "path",
+          "required": true,
+          "allowEmptyValue": false,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "feature": {
+                      "type": "object",
+                      "properties": {
+                        "workflow_status": {
+                          "$ref": "#/components/schemas/workflow_status"
+                        },
+                        "reference_num": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "$ref": "#/components/schemas/description"
+                        },
+                        "start_date": {
+                          "type": "string"
+                        },
+                        "due_date": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "created_by_user": {
+                          "$ref": "#/components/schemas/created_by_user"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/{prodId}/features/": {
+      "get": {
+        "description": "",
+        "operationId": "getfeaturelist",
+        "parameters": [{
+          "name": "prodId",
+          "in": "path",
+          "required": true,
+          "allowEmptyValue": false,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "features": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+
+                          "reference_num": {
+                            "type": "string"
+                          },
+
+                          "name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/pagination"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/features/{featureId}/requirements": {
+      "get": {
+        "description": "",
+        "operationId": "GetRequirementsforfeature",
+        "parameters": [{
+          "name": "featureId",
+          "in": "path",
+          "required": true,
+          "allowEmptyValue": false,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "requirements": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "workflow_status": {
+                            "$ref": "#/components/schemas/workflow_status"
+                          },
+                          "release_id": {
+                            "type": "string"
+                          },
+                          "reference_num": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+
+                          "description": {
+                            "$ref": "#/components/schemas/description"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "created_by_user": {
+                            "$ref": "#/components/schemas/created_by_user"
+                          }
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/pagination"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "pagination": {
+        "type": "object",
+        "properties": {
+          "total_records": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total_pages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "current_page": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "created_by_user": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "workflow_status": {
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "complete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DeepikaSourceAppEmployeeAPI",
+    "description": "Demo of the Reverse Creation of External Service"
+  },
+  "paths": {
+    "/services/data/v58.0/sobjects/Employee_HR_Data__c/{id}": {
+      "get": {
+        "description": "",
+        "operationId": "Deepika Retrieve Employee by Id",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "allowEmptyValue": false,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "2XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "LastModifiedDate": {
+                      "type": "string"
+                    },
+                    "IsDeleted": {
+                      "type": "boolean"
+                    },
+                    "LastViewedDate": {
+                      "type": "string"
+                    },
+                    "LastReferencedDate": {
+                      "type": "string"
+                    },
+                    "Name": {
+                      "type": "string"
+                    },
+                    "SystemModstamp": {
+                      "type": "string"
+                    },
+                    "Date_of_Birth__c": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "OwnerId": {
+                      "type": "string"
+                    },
+                    "CreatedById": {
+                      "type": "string"
+                    },
+                    "Employee_ID__c": {
+                      "type": "string"
+                    },
+                    "CreatedDate": {
+                      "type": "string"
+                    },
+                    "LastActivityDate": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "First_Name__c": {
+                      "type": "string"
+                    },
+                    "Id": {
+                      "type": "string"
+                    },
+                    "LastModifiedById": {
+                      "type": "string"
+                    },
+                    "Salary__c": {
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "Last_Name__c": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/data/v58.0/sobjects/Employee_HR_Data__c/": {
+      "post": {
+        "description": "",
+        "operationId": "Deepika Create New Employee",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "First_Name__c": {
+                    "type": "string"
+                  },
+                  "Last_Name__c": {
+                    "type": "string"
+                  },
+                  "Salary__c": {
+                    "type": "number"
+                  },
+                  "Employee_ID__c": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

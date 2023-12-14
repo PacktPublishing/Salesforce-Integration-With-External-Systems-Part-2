@@ -1,0 +1,11 @@
+POST :
+https://login.salesforce.com/services/oauth2/token
+
+Here are the parameters that we will add to the body:
+grant_type :password
+client_id: <please copy your connected app client id>
+client_secret: <please copy your client secret from Connected app>
+username : <your username>
+password: <your password>
+
+Note: I am not adding security token with the password because I have setup ip restrictions on the profile. 
